@@ -1,5 +1,9 @@
 <main>
-  <input class="form-control" type="text" placeholder="Search" [(ngModel)]="searchText">
+  <div class="input-group input-group-lg">
+
+    <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchText" aria-describedby="inputGroup-sizing-sm">
+  </div>
+
   <div *ngIf="loading">
     Loading ....
   </div>
@@ -9,7 +13,7 @@
   <div hidden>
     {{launches[0].id}}
   </div>
-  <table class="table table-hover table-striped">
+  <table class="table table-bordered table-dark">
     <thead>
       <tr>
         <th>ID</th>
@@ -25,7 +29,7 @@
         <td>{{launch.id}}</td>
         <td>{{launch.mission_name}}</td>
         <td>{{launch.rocket.rocket_name}}</td>
-        <td>{{launch.launch_date_utc}}</td>
+        <td>Lanched {{launch.launch_date_utc | relativeTime }}</td>
 
 
 
