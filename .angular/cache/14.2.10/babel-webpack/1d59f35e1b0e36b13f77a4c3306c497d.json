@@ -1,0 +1,1 @@
+{"ast":null,"code":"export var version = '3.7.5';","map":{"version":3,"names":["version"],"sources":["F:/Bureau/Test_MachinesTalk/MachinesTalk/node_modules/@apollo/client/version.js"],"sourcesContent":["export var version = '3.7.5';\n"],"mappings":"AAAA,OAAO,IAAIA,OAAO,GAAG,OAAd"},"metadata":{},"sourceType":"module"}
