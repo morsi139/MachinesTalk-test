@@ -1,40 +1,39 @@
-    <main>
-        
-      <section class="container">
-        <div *ngIf="loading">
-            Loading ....
-        </div>
-        <div *ngIf="error">
-            Error
-        </div>
-  <div *ngIf="launches">
-    <div hidden>
-        {{launches[0].id}}
-      </div>
-    <div *ngFor="let launch of launches">
-            <b>
-                {{launch.id}}
-    
-            </b>       
-        
-    </div>
+<main>
+  <input class="form-control" type="text" placeholder="Search" [(ngModel)]="searchText">
+  <div *ngIf="loading">
+    Loading ....
   </div>
+  <div *ngIf="error">
+    Error
+  </div>
+  <div hidden>
+    {{launches[0].id}}
+  </div>
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Mission name</th>
+        <th>Rocket name</th>
+        <th>Date</th>
 
-  <div fxLayout fxLayoutAlign="center center">
-    <mat-form-field fxFlex="40%">
-      <input matInput type="text" (keyup)="doFilter($event)" placeholder="Filter">
-    </mat-form-field>
-  </div>
-  
-  <table class="table">
-    <tr>
-      <th>Name</th>
-    </tr>
-    <tr *ngFor="let launch of launches">
-        <td >{{launch.id}}</td>
-    </tr>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let launch of launches | search: searchText">
+        <td>{{launch.id}}</td>
+        <td>{{launch.mission_name}}</td>
+        <td>{{launch.rocket.rocket_name}}</td>
+        <td>{{launch.launch_date_utc}}</td>
+
+
+
+      </tr>
+    </tbody>
   </table>
-       
-      </section>
-    </main>
-  
+
+
+
+
+</main>
